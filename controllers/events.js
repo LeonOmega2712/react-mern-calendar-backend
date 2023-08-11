@@ -2,7 +2,7 @@ const { response } = require('express');
 const Evento = require('../models/Evento');
 
 const getEventos = async (req, res = response) => {
-  const eventos = await Evento.find().populate('user', 'name');
+  const eventos = await Evento.find().populate('user', 'name'); // el _id siempre se incluye por defecto
 
   res.json({
     ok: true,
@@ -60,7 +60,7 @@ const actualizarEvento = async (req, res = response) => {
     const eventoActualizado = await Evento.findByIdAndUpdate(
       eventoId,
       nuevoEvento,
-      { new: true }
+      { new: true } // Hacer que retorne el nuevo evento actualizado y no la versión anterior
     );
 
     res.json({

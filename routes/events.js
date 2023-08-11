@@ -18,7 +18,7 @@ const {
 
 const router = Router();
 
-// Todas tienes que pasar por la validación del JWT
+// Todas tienen que pasar por la validación del JWT
 router.use(validarJWT);
 
 // Obtener eventos
